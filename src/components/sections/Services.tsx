@@ -1,36 +1,31 @@
-import { FileText, Search, Scan, FolderOpen, Landmark, Layers, ShieldCheck, Archive } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { SERVICES, whatsappLink } from '../../data/institutionalData';
 import { Reveal } from '../ui/Reveal';
 
-const LINE = 'border-2 border-[#0066CC]/20 hover:border-brand';
-const TILES = [
-  { t: 'Processos licitatórios', d: 'Digitalização de processos e documentos de licitação, com o acervo organizado do começo ao fim.', i: Landmark, c: 'bg-brand text-white', span: 'lg:col-span-2 lg:row-span-2', ic: 'bg-white/15', big: true },
-  { t: 'Documentos financeiros, contábeis e administrativos', i: FileText, c: LINE, ic: 'bg-[#0066CC]/10 text-brand' },
-  { t: 'Contratos, processos e registros institucionais', i: Layers, c: 'bg-leaf text-ink', ic: 'bg-ink/10' },
-  { t: 'Organização e classificação dos arquivos digitais', i: FolderOpen, c: LINE, ic: 'bg-[#0066CC]/10 text-brand' },
-  { t: 'Indexação para localizar informações com rapidez', i: Search, c: LINE, ic: 'bg-[#0066CC]/10 text-brand' },
-  { t: 'OCR para reconhecimento de texto, quando aplicável', d: 'Documentos que podem ser pesquisados pelo conteúdo, não só pelo nome do arquivo.', i: Scan, c: 'bg-ink text-white', span: 'lg:col-span-2', ic: 'bg-white/15' },
-  { t: 'Acervos preparados para consulta digital', i: Archive, c: LINE, ic: 'bg-[#0066CC]/10 text-brand' },
-  { t: 'Apoio à modernização de arquivos públicos', i: ShieldCheck, c: LINE, ic: 'bg-[#0066CC]/10 text-brand' },
-];
-
-export function Digitalizacao() {
+export function Services() {
   return (
-    <section id="solucoes" className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
-        <Reveal className="max-w-2xl mb-14">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">O que digitalizamos e organizamos</h2>
-          <p className="mt-4 text-lg text-ink/75 leading-relaxed">Soluções para grandes volumes de documentos físicos, pensadas para as necessidades da administração pública.</p>
+    <section id="servicos" className="bg-brand text-white py-24 on-brand">
+      <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-10">
+        <Reveal className="lg:col-span-4">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">Além da digitalização, soluções para toda a gestão documental</h2>
+          <div className="mt-6 h-1 w-14 rounded-full bg-leaf" />
         </Reveal>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {TILES.map((x, k) => (
-            <Reveal key={x.t} delay={k * 0.06} className={x.span ?? ''}>
-              <div className={`group h-full min-h-[11rem] rounded-3xl p-6 flex flex-col justify-between gap-6 transition-all duration-300 hover:-translate-y-1.5 ${x.c}`}>
-                <span className={`w-12 h-12 rounded-2xl grid place-items-center transition-transform duration-300 group-hover:rotate-6 ${x.ic}`}><x.i className="w-6 h-6" aria-hidden /></span>
-                <div>
-                  <h3 className={`font-semibold leading-snug ${x.big ? 'text-2xl sm:text-3xl' : 'text-lg'}`}>{x.t}</h3>
-                  {x.d && <p className="mt-3 opacity-85 leading-relaxed">{x.d}</p>}
+
+        <div className="lg:col-span-8 border-t border-white/25">
+          {SERVICES.map((s, i) => (
+            <Reveal key={s.id} delay={i * 0.1}>
+              <a href={whatsappLink(`Olá! Gostaria de saber mais sobre: ${s.title}`)} target="_blank" rel="noopener noreferrer"
+                className="group relative block py-8 pl-0 pr-2 border-b border-white/25 transition-all duration-300 hover:pl-6 hover:bg-white/5">
+                <span className="absolute left-0 top-0 h-full w-1 origin-top scale-y-0 bg-leaf transition-transform duration-300 group-hover:scale-y-100" />
+                <div className="flex items-start justify-between gap-6">
+                  <div className="space-y-2">
+                    <h3 className="text-xl sm:text-2xl font-semibold">{s.title}</h3>
+                    <p className="text-white/85 leading-relaxed max-w-xl">{s.description}</p>
+                    <p className="text-sm text-white/70 pt-1">{s.items.join('. ')}.</p>
+                  </div>
+                  <ArrowUpRight className="w-6 h-6 shrink-0 text-leaf transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden />
                 </div>
-              </div>
+              </a>
             </Reveal>
           ))}
         </div>
