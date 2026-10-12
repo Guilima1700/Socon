@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Paleta: branco, azul e verde da marca (+ azul escuro para texto) */
+@layer utilities {
+  .text-ink { color: #0A2A4D; }
+  .text-brand { color: #0066CC; }
+  .text-leaf { color: #8DC63F; }
+  .bg-brand { background-color: #0066CC; }
+  .bg-leaf { background-color: #8DC63F; }
+  .border-brand { border-color: #0066CC; }
+}
+
+html { scroll-behavior: smooth; font-family: 'Inter', system-ui, sans-serif; }
+body { margin: 0; background: #fff; color: #0A2A4D; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+::selection { background: #8DC63F; color: #0A2A4D; }
+:focus-visible { outline: 2px solid #0066CC; outline-offset: 3px; }
+.on-brand :focus-visible { outline-color: #fff; }
+
+/* Ilustração do hero: papel sendo digitalizado */
+.scan { animation: scan 3.2s ease-in-out infinite alternate; }
+.draw { transform-box: fill-box; transform-origin: left center; animation: draw 4.8s ease-in-out infinite; animation-delay: var(--d, 0s); }
+.pop { transform-box: fill-box; transform-origin: center; animation: pop 4.8s ease-in-out infinite; }
+@keyframes scan { from { transform: translateY(0); } to { transform: translateY(286px); } }
+@keyframes draw { 0%, 12% { transform: scaleX(0); } 38%, 88% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+@keyframes pop { 0%, 40% { transform: scale(0); } 52%, 88% { transform: scale(1); } 100% { transform: scale(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .scan, .draw, .pop { animation: none; }
+  .draw, .pop { transform: none; }
+}
+
+@layer utilities { .bg-ink { background-color: #0A2A4D; } }
+
+.marquee { animation: marquee 32s linear infinite; }
+.float { animation: float 5s ease-in-out infinite; animation-delay: var(--d, 0s); }
+.caret { animation: blink 1s steps(2) infinite; }
+.rowhl { animation: rowhl 4s ease-in-out infinite; animation-delay: var(--d, 0s); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes float { 50% { transform: translateY(-10px); } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes rowhl { 0%, 22%, 100% { background: transparent; } 8%, 14% { background: rgba(141, 198, 63, .28); } }
+@media (prefers-reduced-motion: reduce) { .marquee, .float, .caret, .rowhl { animation: none; } }
