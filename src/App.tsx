@@ -9,6 +9,7 @@ import { Mission } from './components/sections/Mission';
 import { Methodology } from './components/sections/Methodology';
 import { ContactForm } from './components/sections/ContactForm';
 import { Footer } from './components/layout/Footer';
+import { Wave, C } from './components/ui/Wave';
 
 export function App() {
   return (
@@ -18,11 +19,17 @@ export function App() {
         <Hero />
         <Marquee />
         <Digitalizacao />
+        <Wave from={C.white} to={C.blue} />
         <Services />
+        <Wave from={C.blue} to={C.ink} />
         <GedKaisen />
+        <Wave from={C.ink} to={C.white} />
         <About />
+        <Wave from={C.white} to={C.green} />
         <Mission />
+        <Wave from={C.green} to={C.tint} />
         <Methodology />
+        <Wave from={C.tint} to={C.white} />
         <ContactForm />
       </main>
       <Footer />

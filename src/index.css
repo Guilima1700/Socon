@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -45,3 +45,18 @@ body { margin: 0; background: #fff; color: #0A2A4D; overflow-x: hidden; -webkit-
 @keyframes blink { 50% { opacity: 0; } }
 @keyframes rowhl { 0%, 22%, 100% { background: transparent; } 8%, 14% { background: rgba(141, 198, 63, .28); } }
 @media (prefers-reduced-motion: reduce) { .marquee, .float, .caret, .rowhl { animation: none; } }
+
+/* Tipografia fluida e acabamento */
+html { scroll-padding-top: 5rem; -webkit-tap-highlight-color: transparent; }
+h1, h2, h3 { font-family: 'Manrope', 'Inter', system-ui, sans-serif; }
+@layer utilities {
+  .t-h1 { font-size: clamp(2.15rem, 1.2rem + 4.6vw, 3.9rem); line-height: 1.05; letter-spacing: -.03em; font-weight: 800; }
+  .t-h2 { font-size: clamp(1.8rem, 1.2rem + 2.6vw, 2.9rem); line-height: 1.1; letter-spacing: -.025em; font-weight: 800; }
+  .t-quote { font-size: clamp(1.6rem, 1.05rem + 2.6vw, 2.7rem); line-height: 1.22; letter-spacing: -.02em; font-weight: 700; }
+}
+.dots { background-image: radial-gradient(rgba(0, 102, 204, .22) 1.2px, transparent 1.2px); background-size: 22px 22px; -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent); mask-image: linear-gradient(to bottom, #000 30%, transparent); }
+.drift { animation: drift 16s ease-in-out infinite alternate; }
+@keyframes drift { to { transform: translate3d(-30px, 24px, 0) scale(1.08); } }
+.spot::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s; background: radial-gradient(240px circle at var(--x, 50%) var(--y, 50%), rgba(141, 198, 63, .2), transparent 70%); }
+.spot:hover::after { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .drift { animation: none; } }

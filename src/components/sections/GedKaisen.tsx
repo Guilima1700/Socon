@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 import { Check, ExternalLink, FileText, Search } from 'lucide-react';
-import { kaisenLink, whatsappLink } from '../../data/institutionalData';
+import { kaisenLink } from '../../data/institutionalData';
 import { Reveal } from '../ui/Reveal';
 
 const ext = kaisenLink.external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
@@ -10,7 +10,7 @@ const ROWS = ['Processo licitatório', 'Contrato', 'Documento financeiro', 'Regi
 
 function Mock() {
   return (
-    <figure>
+    <figure className="lg:[transform:perspective(1400px)_rotateY(-7deg)_rotateX(2deg)] transition-transform duration-700 hover:[transform:none]">
       <div className="rounded-2xl bg-white text-ink shadow-2xl overflow-hidden ring-1 ring-white/20">
         <div className="flex items-center gap-2 px-4 py-3 bg-brand">
           <span className="w-3 h-3 rounded-full bg-white/40" /><span className="w-3 h-3 rounded-full bg-white/40" /><span className="w-3 h-3 rounded-full bg-leaf" />
@@ -38,11 +38,11 @@ function Mock() {
 
 export function GedKaisen() {
   return (
-    <section id="kaisen" className="bg-ink text-white py-24 on-brand overflow-hidden">
+    <section id="kaisen" className="bg-ink text-white py-20 md:py-28 on-brand overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
         <Reveal className="space-y-7">
           <span className="inline-flex items-center gap-2 text-sm text-white/80"><span className="w-2 h-2 rounded-full bg-leaf" />Nosso software de armazenamento</span>
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">GED Kaisen: o acervo da sua prefeitura organizado e fácil de consultar.</h2>
+          <h2 className="t-h2">GED Kaisen: o acervo da sua prefeitura organizado e fácil de consultar.</h2>
           <p className="text-lg text-white/80 leading-relaxed">É a plataforma que a SOCON utiliza para armazenar os arquivos das prefeituras, facilitando a consulta, a localização e o gerenciamento das informações.</p>
           <ul className="space-y-3">
             {POINTS.map((p) => (
@@ -55,9 +55,12 @@ export function GedKaisen() {
               Área do cliente <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
             </a>
           </div>
-          <a href={whatsappLink('Olá! Quero conhecer o GED Kaisen para a minha prefeitura.')} target="_blank" rel="noopener noreferrer" className="inline-block font-semibold border-b-2 border-leaf pb-0.5 hover:text-leaf transition-colors">Quero conhecer o GED Kaisen</a>
+          <a href="#contato" onClick={() => window.dispatchEvent(new CustomEvent('interesse', { detail: 'GED Kaisen' }))} className="inline-block font-semibold border-b-2 border-leaf pb-0.5 hover:text-leaf transition-colors">Quero conhecer o GED Kaisen</a>
         </Reveal>
-        <Reveal delay={0.15}><Mock /></Reveal>
+        <Reveal delay={0.15} className="relative">
+          <div aria-hidden className="absolute -inset-4 rounded-[2rem] bg-[#0066CC]/50 blur-3xl" />
+          <div className="relative"><Mock /></div>
+        </Reveal>
       </div>
     </section>
   );

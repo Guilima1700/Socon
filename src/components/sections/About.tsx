@@ -1,5 +1,6 @@
 import { Landmark, Building2, Briefcase, Users, Archive, Check } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
+import { Eyebrow } from '../ui/Eyebrow';
 
 const AUDIENCE = [
   { t: 'Prefeituras municipais', i: Landmark },
@@ -20,11 +21,12 @@ const DIFFS = [
 
 export function About() {
   return (
-    <section id="sobre" className="py-24">
-      <div className="max-w-6xl mx-auto px-6 space-y-24">
+    <section id="sobre" className="py-20 md:py-28">
+      <div className="max-w-6xl mx-auto px-6 space-y-20 md:space-y-28">
         <div className="grid lg:grid-cols-2 gap-14 items-start">
           <Reveal className="space-y-5">
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">Especialistas em digitalização e gestão documental para o setor público</h2>
+            <Eyebrow>Sobre a SOCON</Eyebrow>
+            <h2 className="t-h2">Especialistas em digitalização e gestão documental para o setor público</h2>
             <p className="text-lg text-ink/75 leading-relaxed max-w-xl">A SOCON transforma acervos físicos em documentos digitais organizados, facilitando o acesso às informações, a recuperação de arquivos e a modernização dos processos administrativos.</p>
           </Reveal>
           <Reveal delay={0.1}>
@@ -40,8 +42,8 @@ export function About() {
           </Reveal>
         </div>
 
-        <div>
-          <Reveal><h2 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-10">Por que escolher a SOCON</h2></Reveal>
+        <div className="rounded-3xl bg-[#F5F9FD] p-6 sm:p-12">
+          <Reveal><Eyebrow>Diferenciais</Eyebrow><h2 className="t-h2 mb-10">Por que escolher a SOCON</h2></Reveal>
           <ul className="grid md:grid-cols-2 gap-x-14">
             {DIFFS.map((d, i) => (
               <Reveal key={d} delay={(i % 2) * 0.08}>

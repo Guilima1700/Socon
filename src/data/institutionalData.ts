@@ -19,8 +19,8 @@ export const COMPANY = {
 export const whatsappLink = (text: string) =>
   `https://wa.me/${COMPANY.whatsappNumber}?text=${encodeURIComponent(text)}`;
 
-// >>> Cole aqui o link da página / área do cliente do GED Kaisen. Enquanto estiver vazio, os botões levam para o contato.
-export const GED_KAISEN_URL = "";
+// Link da área do cliente do GED Kaisen (se ficar vazio, os botões levam para o contato).
+export const GED_KAISEN_URL = "https://web.gedkaisen.com.br/honda/asp/entrada.asp";
 export const kaisenLink = { href: GED_KAISEN_URL || "#contato", external: Boolean(GED_KAISEN_URL) };
 
 export const DOC_TYPES = ["Licitações", "Contratos", "Documentos financeiros", "Documentos contábeis", "Processos administrativos", "Registros institucionais"];
@@ -37,12 +37,6 @@ export const SERVICES: ServiceItem[] = [
     title: "Consultoria em gestão pública e empresarial",
     description: "Apoio para organizar processos e melhorar a rotina de trabalho de prefeituras, órgãos públicos e empresas.",
     items: ["Organização de processos administrativos", "Planejamento e melhoria de fluxos de trabalho", "Apoio à transparência e à prestação de contas"],
-  },
-  {
-    id: "treinamentos",
-    title: "Capacitação e treinamento",
-    description: "Formação das equipes para manter os arquivos organizados e usar as ferramentas digitais com autonomia.",
-    items: ["Treinamentos em gestão documental", "Boas práticas de organização de arquivos", "Utilização de ferramentas digitais"],
   },
 ];
 

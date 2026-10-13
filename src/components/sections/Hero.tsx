@@ -40,18 +40,26 @@ function ScanIllustration() {
 export function Hero() {
   const reduce = useReducedMotion();
   return (
-    <section className="pt-32 pb-20 md:pt-40 md:pb-28">
+    <section className="relative isolate overflow-hidden pt-28 pb-16 sm:pt-32 md:pt-40 md:pb-28">
+      <div aria-hidden className="absolute inset-0 -z-10">
+        <div className="dots absolute inset-0 opacity-60" />
+        <div className="drift absolute -top-32 -right-24 w-[26rem] h-[26rem] rounded-full bg-[#8DC63F]/25 blur-3xl" />
+        <div className="drift absolute top-1/2 -left-32 w-[22rem] h-[22rem] rounded-full bg-[#0066CC]/15 blur-3xl" style={{ animationDelay: '-6s' }} />
+      </div>
       <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
         <motion.div initial={reduce ? false : 'hidden'} animate="show" transition={{ staggerChildren: 0.12 }} className="space-y-7">
-          <motion.h1 variants={rise} className="text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.08]">
+          <motion.span variants={rise} className="inline-flex items-center gap-2 rounded-full border border-[#0066CC]/20 bg-white px-4 py-1.5 text-sm font-semibold text-brand">
+            <span className="w-2 h-2 rounded-full bg-leaf" />Digitalização e gestão documental
+          </motion.span>
+          <motion.h1 variants={rise} className="t-h1">
             Digitalização de documentos para uma gestão pública mais eficiente.
           </motion.h1>
           <motion.p variants={rise} className="text-lg text-ink/75 max-w-xl leading-relaxed">
             Transformamos acervos físicos de licitação, financeiro e administrativo em arquivos digitais organizados, facilitando o acesso às informações e contribuindo para a modernização dos processos públicos.
           </motion.p>
-          <motion.div variants={rise} className="flex flex-wrap items-center gap-6 pt-1">
+          <motion.div variants={rise} className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6 pt-1">
             <a href={whatsappLink('Olá! Quero solicitar uma proposta para minha instituição.')} target="_blank" rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand text-white font-semibold transition-colors hover:bg-[#0A2A4D]">
+              className="group inline-flex w-full sm:w-auto justify-center items-center gap-2 px-7 py-4 rounded-full bg-brand text-white font-semibold transition-colors hover:bg-[#0A2A4D]">
               Solicitar uma proposta
               <ArrowRight className="w-4 h-4 text-leaf transition-transform duration-300 group-hover:translate-x-1" />
             </a>
@@ -62,8 +70,8 @@ export function Hero() {
 
         <motion.div initial={reduce ? false : { opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }} className="relative max-w-md w-full mx-auto">
           <ScanIllustration />
-          {[['Licitação', 'top-0 -left-3 sm:-left-8', '0s'], ['Financeiro', 'top-1/3 -right-3 sm:-right-8', '1.2s'], ['Administrativo', 'bottom-2 left-0 sm:-left-6', '2.4s']].map(([t, pos, d]) => (
-            <span key={t} style={{ '--d': d } as CSSProperties} className={`float absolute ${pos} hidden sm:flex items-center gap-2 rounded-full bg-white border border-[#0066CC]/20 shadow-lg px-4 py-2 text-sm font-semibold`}>
+          {[['Licitação', 'top-0 left-0 sm:-left-8', '0s'], ['Financeiro', 'top-1/3 right-0 sm:-right-8', '1.2s'], ['Administrativo', 'bottom-2 left-0 sm:-left-6', '2.4s']].map(([t, pos, d]) => (
+            <span key={t} style={{ '--d': d } as CSSProperties} className={`float absolute ${pos} flex items-center gap-2 rounded-full bg-white border border-[#0066CC]/20 shadow-lg px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold`}>
               <span className="w-2 h-2 rounded-full bg-leaf" />{t}
             </span>
           ))}

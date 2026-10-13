@@ -1,14 +1,15 @@
 import { ArrowUpRight } from 'lucide-react';
 import { SERVICES, whatsappLink } from '../../data/institutionalData';
 import { Reveal } from '../ui/Reveal';
+import { Eyebrow } from '../ui/Eyebrow';
 
 export function Services() {
   return (
-    <section id="servicos" className="bg-brand text-white py-24 on-brand">
+    <section id="servicos" className="bg-brand text-white py-20 md:py-28 on-brand">
       <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-10">
-        <Reveal className="lg:col-span-4">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">Além da digitalização, soluções para toda a gestão documental</h2>
-          <div className="mt-6 h-1 w-14 rounded-full bg-leaf" />
+        <Reveal className="lg:col-span-4 lg:sticky lg:top-28 self-start">
+          <Eyebrow light>Serviços</Eyebrow>
+          <h2 className="t-h2">Além da digitalização, soluções para toda a gestão documental</h2>
         </Reveal>
 
         <div className="lg:col-span-8 border-t border-white/25">
