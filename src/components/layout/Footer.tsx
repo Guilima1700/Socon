@@ -39,7 +39,7 @@ export function Footer() {
               href="https://www.instagram.com/crystallcode/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-leaf transition-colors underline underline-offset-2"
+              className="text-black hover:text-leaf transition-colors underline underline-offset-2"
             >
               Crystal Code
             </a>
