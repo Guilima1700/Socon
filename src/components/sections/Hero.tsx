@@ -52,10 +52,10 @@ export function Hero() {
             <span className="w-2 h-2 rounded-full bg-leaf" />Digitalização e gestão documental
           </motion.span>
           <motion.h1 variants={rise} className="t-h1">
-            Digitalização de documentos para uma gestão pública mais eficiente.
+            Digitalização de documentos para uma gestão mais eficiente.
           </motion.h1>
           <motion.p variants={rise} className="text-lg text-ink/75 max-w-xl leading-relaxed">
-            Transformamos acervos físicos de licitação, financeiro e administrativo em arquivos digitais organizados, facilitando o acesso às informações e contribuindo para a modernização dos processos públicos.
+            Transformamos acervos físicos dos setores público e privado, incluindo documentos de licitação, financeiro e administrativo, em arquivos digitais organizados, facilitando o acesso às informações e modernizando os processos de gestão.
           </motion.p>
           <motion.div variants={rise} className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6 pt-1">
             <a href={whatsappLink('Olá! Quero solicitar uma proposta para minha instituição.')} target="_blank" rel="noopener noreferrer"
