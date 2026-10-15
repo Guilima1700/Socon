@@ -31,7 +31,21 @@ export function Footer() {
       </div>
       <div className="max-w-6xl mx-auto px-6 py-6 border-t border-[#0066CC]/15 text-sm text-ink/60 flex flex-col md:flex-row gap-2 justify-between">
         <p>{COMPANY.fullName}. CNPJ {COMPANY.cnpj}</p>
-        <p>© {new Date().getFullYear()} SOCON. Todos os direitos reservados.</p>
+        <div className="flex flex-col md:items-end gap-1">
+          <p>© {new Date().getFullYear()} SOCON. Todos os direitos reservados.</p>
+          <p>
+            Este site foi desenvolvido pela{' '}
+            <a
+              href="https://www.instagram.com/crystallcode/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-leaf transition-colors underline underline-offset-2"
+            >
+              Crystal Code
+            </a>
+            .
+          </p>
+        </div>
       </div>
     </footer>
   );
