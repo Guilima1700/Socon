@@ -1,6 +1,6 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { Send, Phone, Mail, MapPin } from 'lucide-react';
-import { COMPANY, SERVICES, whatsappLink } from '../../data/institutionalData';
+import { COMPANY, SERVICES, INTERESTS, whatsappLink } from '../../data/institutionalData';
 import { Reveal } from '../ui/Reveal';
 import { Eyebrow } from '../ui/Eyebrow';
 
@@ -31,13 +31,13 @@ export function ContactForm() {
             <div><Eyebrow>Contato</Eyebrow>
             <h2 className="t-h2">Vamos organizar o acervo da sua instituição?</h2></div>
             <ul className="space-y-3 text-ink/80">
-              <li className="flex items-center gap-3"><Phone className="w-5 h-5 text-brand" aria-hidden />{COMPANY.phoneDisplay}</li>
+              <li className="flex items-center gap-3"><Phone className="w-5 h-5 text-brand shrink-0" aria-hidden />{COMPANY.phoneDisplay}</li>
               <li className="flex items-center gap-3"><Mail className="w-5 h-5 text-brand shrink-0" aria-hidden /><span className="min-w-0 break-all">{COMPANY.email}</span></li>
               <li className="flex items-start gap-3"><MapPin className="w-5 h-5 text-brand mt-0.5 shrink-0" aria-hidden />{COMPANY.address}</li>
             </ul>
           </div>
 
-          <form onSubmit={handleSend} className="space-y-6">
+          <form onSubmit={handleSend} className="space-y-6 min-w-0">
             <label className="block text-sm font-medium">Seu nome
               <input required value={name} onChange={(e) => setName(e.target.value)} placeholder="Nome do responsável" className={field} />
             </label>
@@ -46,7 +46,7 @@ export function ContactForm() {
             </label>
             <label className="block text-sm font-medium">Solução desejada
               <select value={service} onChange={(e) => setService(e.target.value)} className={field}>
-                {[...SERVICES.map((s) => s.title), 'GED Kaisen'].map((t) => <option key={t} value={t}>{t}</option>)}
+                {INTERESTS.map((t) => <option key={t} value={t}>{t}</option>)}
               </select>
             </label>
             <button type="submit" className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand text-white font-semibold transition-colors hover:bg-[#0A2A4D]">

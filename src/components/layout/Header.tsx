@@ -7,7 +7,8 @@ import { kaisenLink } from '../../data/institutionalData';
 const LINKS = [
   { href: '#solucoes', label: 'Digitalização' },
   { href: '#servicos', label: 'Serviços' },
-  { href: '#kaisen', label: 'GED Kaisen' },
+  { href: '#plataforma', label: 'Plataforma' },
+  { href: '#sobre', label: 'Sobre' },
   { href: '#metodo', label: 'Como funciona' },
   { href: '#contato', label: 'Contato' },
 ];
@@ -36,7 +37,7 @@ export function Header() {
         <div className="max-w-6xl mx-auto px-5 sm:px-6 flex items-center justify-between">
           <a href="#" onClick={() => setOpen(false)} aria-label="SOCON – início"><Logo className="h-8" /></a>
 
-          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-ink">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium text-ink">
             {LINKS.map((l) => (
               <a key={l.href} href={l.href} className="relative py-1 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-leaf after:transition-transform after:duration-300 hover:after:scale-x-100">{l.label}</a>
             ))}

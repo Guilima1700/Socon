@@ -19,7 +19,7 @@ export const COMPANY = {
 export const whatsappLink = (text: string) =>
   `https://wa.me/${COMPANY.whatsappNumber}?text=${encodeURIComponent(text)}`;
 
-// Link da área do cliente do GED Kaisen (se ficar vazio, os botões levam para o contato).
+// Link da área do cliente da plataforma (se ficar vazio, os botões levam para o contato).
 export const GED_KAISEN_URL = "https://web.gedkaisen.com.br/honda/asp/entrada.asp";
 export const kaisenLink = { href: GED_KAISEN_URL || "#contato", external: Boolean(GED_KAISEN_URL) };
 
@@ -45,3 +45,8 @@ export const METHODOLOGY = [
   { title: "Tratamento e digitalização", text: "Higienização física, captura digital e OCR." },
   { title: "Indexação e entrega", text: "Estruturação em nuvem, treinamento da equipe e acesso imediato." },
 ];
+
+export const PLATFORM_INTEREST = "Plataforma de gestão documental";
+export const PUBLIC_INTEREST = "Soluções para prefeituras e órgãos públicos";
+export const COMPANY_INTEREST = "Soluções para empresas";
+export const INTERESTS = [...SERVICES.map((s) => s.title), PLATFORM_INTEREST, PUBLIC_INTEREST, COMPANY_INTEREST];

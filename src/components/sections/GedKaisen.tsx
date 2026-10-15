@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 import { Check, ExternalLink, FileText, Search } from 'lucide-react';
-import { kaisenLink } from '../../data/institutionalData';
+import { kaisenLink, PLATFORM_INTEREST } from '../../data/institutionalData';
 import { Reveal } from '../ui/Reveal';
 
 const ext = kaisenLink.external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
@@ -38,11 +38,11 @@ function Mock() {
 
 export function GedKaisen() {
   return (
-    <section id="kaisen" className="bg-ink text-white py-20 md:py-28 on-brand overflow-hidden">
+    <section id="plataforma" className="bg-ink text-white py-20 md:py-28 on-brand overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
         <Reveal className="space-y-7">
           <span className="inline-flex items-center gap-2 text-sm text-white/80"><span className="w-2 h-2 rounded-full bg-leaf" />Nosso software de armazenamento</span>
-          <h2 className="t-h2">GED Kaisen: o acervo da sua prefeitura organizado e fácil de consultar.</h2>
+          <h2 className="t-h2">O acervo da sua prefeitura organizado e fácil de consultar.</h2>
           <p className="text-lg text-white/80 leading-relaxed">É a plataforma que a SOCON utiliza para armazenar os arquivos das prefeituras, facilitando a consulta, a localização e o gerenciamento das informações.</p>
           <ul className="space-y-3">
             {POINTS.map((p) => (
@@ -55,7 +55,7 @@ export function GedKaisen() {
               Área do cliente <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
             </a>
           </div>
-          <a href="#contato" onClick={() => window.dispatchEvent(new CustomEvent('interesse', { detail: 'GED Kaisen' }))} className="inline-block font-semibold border-b-2 border-leaf pb-0.5 hover:text-leaf transition-colors">Quero conhecer o GED Kaisen</a>
+          <a href="#contato" onClick={() => window.dispatchEvent(new CustomEvent('interesse', { detail: PLATFORM_INTEREST }))} className="inline-block font-semibold border-b-2 border-leaf pb-0.5 hover:text-leaf transition-colors">Quero conhecer o nosso software</a>
         </Reveal>
         <Reveal delay={0.15} className="relative">
           <div aria-hidden className="absolute -inset-4 rounded-[2rem] bg-[#0066CC]/50 blur-3xl" />

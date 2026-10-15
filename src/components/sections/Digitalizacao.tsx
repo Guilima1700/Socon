@@ -2,6 +2,7 @@ import { FileText, Search, Scan, FolderOpen, Landmark, Layers, ShieldCheck, Arch
 import type { MouseEvent } from 'react';
 import { Reveal } from '../ui/Reveal';
 import { Eyebrow } from '../ui/Eyebrow';
+import { useIsMobile } from '../ui/useIsMobile';
 
 const spot = (e: MouseEvent<HTMLDivElement>) => {
   const r = e.currentTarget.getBoundingClientRect();
@@ -22,17 +23,18 @@ const TILES = [
 ];
 
 export function Digitalizacao() {
+  const mobile = useIsMobile();
   return (
-    <section id="solucoes" className="py-20 md:py-28">
+    <section id="solucoes" className="py-20 md:py-28 overflow-x-clip">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal className="max-w-2xl mb-12 md:mb-14">
           <Eyebrow>Digitalização</Eyebrow>
           <h2 className="t-h2">O que digitalizamos e organizamos</h2>
-          <p className="mt-4 text-lg text-ink/75 leading-relaxed">Soluções para grandes volumes de documentos físicos, pensadas para as necessidades da administração pública.</p>
+          <p className="mt-4 text-lg text-ink/75 leading-relaxed">Soluções para grandes volumes de documentos físicos, pensadas para as necessidades da administração pública e privada.</p>
         </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {TILES.map((x, k) => (
-            <Reveal key={x.t} delay={k * 0.06} className={x.span ?? ''}>
+            <Reveal key={x.t} delay={mobile ? 0 : k * 0.06} x={mobile ? (k % 2 === 0 ? -56 : 56) : 0} className={x.span ?? ''}>
               <div onMouseMove={spot} className={`spot group relative overflow-hidden h-full min-h-[11rem] rounded-3xl p-6 flex flex-col justify-between gap-6 transition-all duration-300 hover:-translate-y-1.5 ${x.c}`}>
                 {x.big && <x.i className="absolute -right-8 -bottom-8 w-52 h-52 opacity-10" aria-hidden />}
                 <span className={`relative w-12 h-12 rounded-2xl grid place-items-center transition-transform duration-300 group-hover:rotate-6 ${x.ic}`}><x.i className="w-6 h-6" aria-hidden /></span>
