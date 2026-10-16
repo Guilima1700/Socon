@@ -40,7 +40,7 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-end">
           <Reveal>
             <Eyebrow>Sobre a SOCON</Eyebrow>
-            <h2 className="t-h2">Especialistas em digitalização e gestão documental, para o setor público e para empresas</h2>
+            <h2 className="t-h2">Especialistas em digitalização e gestão documental, para o setor público e privado</h2>
           </Reveal>
           <Reveal delay={0.1} className="space-y-4 text-lg text-ink/75 leading-relaxed">
             <p>A SOCON transforma acervos físicos em documentos digitais organizados, facilitando o acesso às informações, a recuperação de arquivos e a modernização dos processos administrativos.</p>
@@ -53,7 +53,7 @@ export function About() {
             <div className="on-brand relative isolate overflow-hidden flex flex-col w-full rounded-[2rem] bg-brand text-white p-7 sm:p-10">
               <div aria-hidden className="drift absolute -right-20 -bottom-24 -z-10 w-72 h-72 rounded-full border-[3rem] border-white/10" />
               <span className="w-12 h-12 rounded-2xl bg-white/15 grid place-items-center"><Landmark className="w-6 h-6" aria-hidden /></span>
-              <h3 className="mt-6 text-2xl sm:text-3xl font-extrabold tracking-tight">Prefeituras e órgãos públicos</h3>
+              <h3 className="mt-6 text-2xl sm:text-3xl font-extrabold tracking-tight">Órgãos públicos</h3>
               <p className="mt-3 text-white/85 leading-relaxed">Digitalização e organização de acervos para uma gestão pública mais eficiente, com atenção às normas arquivísticas e à legislação aplicável.</p>
               <ul className="mt-6 flex flex-wrap gap-2">
                 {PUBLIC_AUDIENCE.map((a) => (

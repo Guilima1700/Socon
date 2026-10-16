@@ -43,7 +43,7 @@ export function GedKaisen() {
         <Reveal className="space-y-7">
           <span className="inline-flex items-center gap-2 text-sm text-white/80"><span className="w-2 h-2 rounded-full bg-leaf" />Nosso software de armazenamento</span>
           <h2 className="t-h2">Seu acervo documental organizado e fácil de consultar.</h2>
-          <p className="text-lg text-white/80 leading-relaxed">Uma solução utilizada pela SOCON para armazenar e organizar documentos de empresas, órgãos públicos e prefeituras, facilitando a consulta, a localização e o gerenciamento das informações.</p>
+          <p className="text-lg text-white/80 leading-relaxed">Uma solução utilizada pela SOCON para armazenar e organizar documentos de empresas privadas e orgãos públicos, facilitando a consulta, a localização e o gerenciamento das informações.</p>
           <ul className="space-y-3">
             {POINTS.map((p) => (
               <li key={p} className="flex items-center gap-3"><span className="w-6 h-6 rounded-full bg-leaf grid place-items-center shrink-0"><Check className="w-4 h-4 text-ink" aria-hidden /></span>{p}</li>
